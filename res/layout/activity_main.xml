@@ -1,0 +1,38 @@
+
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Button android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:text="@string/refresh"
+        android:id="@+id/refreshButton"/>
+    
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="@string/app_name"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"/>
+    
+    <View android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/refreshButton"
+        android:background="@android:color/darker_gray"/>
+    
+    	<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+	    xmlns:tools="http://schemas.android.com/tools"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_below="@+id/refreshButton"
+	    android:paddingBottom="@dimen/activity_vertical_margin"
+	    android:paddingLeft="@dimen/activity_horizontal_margin"
+	    android:paddingRight="@dimen/activity_horizontal_margin"
+	    android:paddingTop="@dimen/activity_vertical_margin"
+	    android:dividerHeight="1dp"
+	    android:id="@+id/listView"
+	    tools:context=".MainActivity" >
+	</ListView>
+</RelativeLayout>
