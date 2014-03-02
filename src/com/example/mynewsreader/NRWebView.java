@@ -38,7 +38,6 @@ public class NRWebView extends Activity {
 		
 		@Override
 	    public void onPageFinished(WebView view, String url) {
-	        // TODO Auto-generated method stub
 	        super.onPageFinished(view, url);
 	        
 	        progDialog.dismiss() ;

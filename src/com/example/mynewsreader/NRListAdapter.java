@@ -12,6 +12,8 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
+import com.example.mynewsreader.data.NRDict;
+import com.example.mynewsreader.data.NRNewsItem;
 import com.google.gson.Gson;
 
 import android.content.Context;
@@ -35,6 +37,10 @@ public class NRListAdapter extends BaseAdapter {
 	private NRDict newsDict = null ;
 	private Context context = null ;
 	
+	/*
+	 * Cache to keep the images so that scrolling will be smoother and avoids downloading
+	 * the images again and again.
+	 */
 	private LruCache<Integer, Bitmap> cache = null ;
 	
 	public NRListAdapter(Context contextArg) {
@@ -47,6 +53,9 @@ public class NRListAdapter extends BaseAdapter {
 		cache = new LruCache<Integer, Bitmap>(cacheSize) ;
 	}
 	
+	/*
+	 * This function is used to refresh the items the adapter is using
+	 */
 	public void refresh() {
 		newsDict = null ;
 		notifyDataSetChanged() ;
@@ -111,6 +120,9 @@ public class NRListAdapter extends BaseAdapter {
 				@Override
 				public void onClick(View v) {
 					
+					/*
+					 * Loading the webview if the item is clicked
+					 */
 					int position = (Integer) v.getTag() ;
 					String urlValue = newsDict.items.get(position).tinyUrl ;
 					
@@ -130,6 +142,10 @@ public class NRListAdapter extends BaseAdapter {
 		}
 	}
 	
+	/*
+	 * This class is used to load the news feeds
+	 * Loads the newsDict global variable once the data is loaded
+	 */
 	private class JsonLoaderTask extends AsyncTask<String, Void, Void> {
 
 		@Override
@@ -180,6 +196,9 @@ public class NRListAdapter extends BaseAdapter {
 		}
 	}
 
+	/*
+	 * This class is used to lazy load the images and load the cache
+	 */
 	private class ImageLoaderTask extends AsyncTask<String, Void, Bitmap> {
 
 		private ImageView bmImage;

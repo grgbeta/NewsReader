@@ -25,6 +25,7 @@
         android:textStyle="bold"
         android:layout_toRightOf="@+id/icon"
         android:id="@+id/title"
+        android:fontFamily="sans-serief-light"
         android:singleLine="true"
          />
     
@@ -33,6 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
         android:id="@+id/description"
+        android:fontFamily="sans-serief-light"
         android:textColor="@android:color/darker_gray"
         android:lines="3"/>
     </RelativeLayout>
